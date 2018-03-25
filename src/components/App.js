@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { Creators } from '../actions/app';
+
 export class App extends Component {
 
   render() {
@@ -21,7 +23,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleStatus: () => dispatch({ type: 'TOGGLE_STATUS' })
+  toggleStatus: () => dispatch(Creators.toggleStatus())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
