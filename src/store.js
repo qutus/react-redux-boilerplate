@@ -7,10 +7,13 @@ import {
 import createSagaMiddleware from 'redux-saga';
 import { fork } from 'redux-saga/effects';
 
+import entityReducer from './reducers/entity';
 import appReducer from './reducers/app';
+
 import userSaga from './sagas/user';
 
 const reducers = combineReducers({
+  entity: entityReducer,
   app: appReducer
 });
 

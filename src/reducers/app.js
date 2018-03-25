@@ -5,7 +5,7 @@ import { Types as usersTypes } from '../actions/user';
 
 export const INITIAL_STATE = {
   status: false,
-  users: []
+  _users: []
 };
 
 export const toggleStatus = (state = INITIAL_STATE, action) => ({
@@ -15,7 +15,7 @@ export const toggleStatus = (state = INITIAL_STATE, action) => ({
 
 export const setUsers = (state = INITIAL_STATE, action) => ({
   ...state,
-  users: [...state.users, ...action.users]
+  _users: [...state._users, ...action._users]
 });
 
 export const HANDLERS = {

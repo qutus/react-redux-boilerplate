@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { Creators as appCreators } from '../actions/app';
 import { Creators as userCreators } from '../actions/user';
+import { usersSelector } from '../selectors/user';
 
 export class App extends Component {
 
@@ -17,7 +18,8 @@ export class App extends Component {
         <label>{this.props.users.length}</label>
         <button onClick={() => this.props.fetchUsers(10)}>Fetch users</button>
         {
-          this.props.users.map(user => (
+          this.props.status
+          && this.props.users.map(user => (
             <React.Fragment>
               <img src={user.picture.large} alt='profile'/>
               <label>{user.name.first} {user.name.last}</label>
@@ -32,7 +34,7 @@ export class App extends Component {
 
 const mapStateToProps = state => ({
   status: state.app.status,
-  users: state.app.users
+  users: usersSelector(state)
 });
 
 const mapDispatchToProps = dispatch => ({
